@@ -28,6 +28,9 @@ const Home = () => {
         }
     },[])
 
+    console.log('ws',ws)
+    console.log('trades',trades)
+
     useEffect(() => {
         if (ws) {
           ws.onmessage = (evt) => {
@@ -39,7 +42,7 @@ const Home = () => {
       }, [ws, trades]);
     
       const addTradeToList = (trade, newTrades) => {
-        if (newTrades.length >= 20) {
+        if (newTrades.length >= 30) {
           newTrades.shift();
           newTrades.push(trade);
           setTrades(newTrades);
